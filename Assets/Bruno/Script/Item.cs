@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item{
-    public enum ItemType {
+public class Item {
+
+    public enum ItemType{
         Sword,
         HealthPotion,
         ManaPotion,
@@ -13,4 +14,5 @@ public class Item{
 
     public ItemType itemType;
     public int amount;
+
 }
