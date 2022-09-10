@@ -6,6 +6,14 @@ public class Moviment : MonoBehaviour
 {
     public float velPlayer;
     public Rigidbody2D rb;
+    private Inventory inventory;
+
+    [SerializeField] private UI_Inventory uiInventory;
+
+    private void Awake(){
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
+    }
 
     void Update()
     {
