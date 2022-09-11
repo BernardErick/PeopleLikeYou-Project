@@ -7,7 +7,7 @@ public class InventoryPlayer : MonoBehaviour{
     [SerializeField] private UI_Inventory uiIventory;
     private Inventory inventory;
     private void Awake(){
-        inventory = new Inventory();
+        inventory = new Inventory(UseItem);
         uiIventory.SetInventory(inventory);
 
         ItemWorld.SpawnItemWorld(new Vector3(4f,-3.5f), new Item {itemType = Item.ItemType.Sword, amount = 1});
@@ -23,6 +23,19 @@ public class InventoryPlayer : MonoBehaviour{
         if(itemWorld != null){
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestroySelf();
+        }
+    }
+
+    private void UseItem(Item item){
+        switch (item.itemType){
+            case Item.ItemType.HealthPotion:
+            Debug.Log("usou vida");
+            inventory.RemoveItem(new Item{itemType = Item.ItemType.HealthPotion, amount = 1});
+            break;
+            case Item.ItemType.ManaPotion:
+            Debug.Log("usou mana");
+            inventory.RemoveItem(new Item{itemType = Item.ItemType.ManaPotion, amount = 1});
+            break;
         }
     }
 }

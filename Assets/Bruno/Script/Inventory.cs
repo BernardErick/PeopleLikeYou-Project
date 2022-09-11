@@ -7,8 +7,10 @@ public class Inventory{
 
     public event EventHandler OnItemListChanged;
     private List<Item> itemList;
+    private Action<Item> useItemAction;
 
-    public Inventory(){
+    public Inventory(Action<Item> useItemAction){
+        this.useItemAction = useItemAction;
         itemList = new List<Item>();
         AddItem(new Item {itemType = Item.ItemType.Sword, amount = 1});
         AddItem(new Item {itemType = Item.ItemType.HealthPotion, amount = 1});
@@ -54,7 +56,7 @@ public class Inventory{
     }
 
     public void UseItem(Item item){
-        
+        useItemAction(item);
     }
 
     public List<Item> GetItemList(){

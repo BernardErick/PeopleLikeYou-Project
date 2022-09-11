@@ -28,7 +28,7 @@ public class UI_Inventory : MonoBehaviour
     public void remover(){
             foreach(Item item in inventory.GetItemList()){
             // chamar a função remover item la do inventario
-            Debug.Log("apertando para remover o item");
+            // Debug.Log("apertando para remover o item");
             inventory.RemoveItem(item);
             }
     }
@@ -36,7 +36,7 @@ public class UI_Inventory : MonoBehaviour
     public void usar(){
             foreach(Item item in inventory.GetItemList()){
             // chamar a função remover item la do inventario
-            Debug.Log("apertando para usar o item");
+            // Debug.Log("apertando para usar o item");
             inventory.UseItem(item);
             }
     }
