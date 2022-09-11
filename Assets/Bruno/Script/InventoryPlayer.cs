@@ -10,9 +10,17 @@ public class InventoryPlayer : MonoBehaviour{
         inventory = new Inventory();
         uiIventory.SetInventory(inventory);
 
-        ItemWorld.SpawnItemWorld(new Vector3(1,-1), new Item {itemType = Item.ItemType.Sword, amount = 1});
-        ItemWorld.SpawnItemWorld(new Vector3(0,0), new Item {itemType = Item.ItemType.Sword, amount = 1});
-        ItemWorld.SpawnItemWorld(new Vector3(0,-3), new Item {itemType = Item.ItemType.HealthPotion, amount = 1});
-        ItemWorld.SpawnItemWorld(new Vector3(-5,0), new Item {itemType = Item.ItemType.ManaPotion, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(-1f,-3.5f), new Item {itemType = Item.ItemType.Sword, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(-3f,-4.5f), new Item {itemType = Item.ItemType.Sword, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(-4f,-3f), new Item {itemType = Item.ItemType.HealthPotion, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(-5f,-4.5f), new Item {itemType = Item.ItemType.ManaPotion, amount = 1});
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider){
+        ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+        if(itemWorld != null){
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
     }
 }
