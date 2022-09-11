@@ -53,6 +53,10 @@ public class Inventory{
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void UseItem(Item item){
+        
+    }
+
     public List<Item> GetItemList(){
         return itemList;
     }

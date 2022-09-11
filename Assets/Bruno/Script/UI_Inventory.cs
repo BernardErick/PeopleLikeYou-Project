@@ -25,6 +25,22 @@ public class UI_Inventory : MonoBehaviour
         RefreshInventoryItems();
     }
 
+    public void remover(){
+            foreach(Item item in inventory.GetItemList()){
+            // chamar a função remover item la do inventario
+            Debug.Log("apertando para remover o item");
+            inventory.RemoveItem(item);
+            }
+    }
+
+    public void usar(){
+            foreach(Item item in inventory.GetItemList()){
+            // chamar a função remover item la do inventario
+            Debug.Log("apertando para usar o item");
+            inventory.UseItem(item);
+            }
+    }
+
     public void RefreshInventoryItems(){
         foreach (Transform child in itemSlotContainer){
             if(child == itemSlotTemplate){
